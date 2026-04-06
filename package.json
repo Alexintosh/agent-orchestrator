@@ -1,5 +1,5 @@
 {
-  "name": "agent-orchestrator",
+  "name": "@alexintosh/agent-orchestrator",
   "version": "0.1.0",
   "description": "Standalone agent orchestration library — schedule, execute, and manage sessions for CLI-based AI agents (Claude, Codex, Gemini, Cursor, OpenCode, Pi, OpenClaw)",
   "type": "module",

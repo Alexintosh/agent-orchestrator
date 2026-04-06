@@ -1,11 +1,11 @@
-# agent-orchestrator
+# @alexintosh/agent-orchestrator
 
 Standalone library for scheduling, executing, and managing sessions for CLI-based AI agents. Supports Claude, Codex, Gemini, Cursor, OpenCode, Pi, and OpenClaw out of the box.
 
 ## Installation
 
 ```bash
-npm install agent-orchestrator
+npm install @alexintosh/agent-orchestrator
 ```
 
 Requires **Node.js 20+**.
@@ -17,7 +17,7 @@ import {
   createOrchestrator,
   claudeLocalAdapter,
   MemoryStore,
-} from "agent-orchestrator";
+} from "@alexintosh/agent-orchestrator";
 
 const orchestrator = createOrchestrator({
   store: new MemoryStore(),
@@ -55,7 +55,7 @@ const run = await orchestrator.invoke(agent.id, {
 Register all adapters at once:
 
 ```typescript
-import { adapters } from "agent-orchestrator";
+import { adapters } from "@alexintosh/agent-orchestrator";
 
 const orchestrator = createOrchestrator({
   store: new MemoryStore(),
@@ -67,7 +67,7 @@ const orchestrator = createOrchestrator({
 Or import individually for tree-shaking:
 
 ```typescript
-import { claudeLocalAdapter } from "agent-orchestrator/adapters/claude-local";
+import { claudeLocalAdapter } from "@alexintosh/agent-orchestrator/adapters/claude-local";
 ```
 
 ## Key Concepts
@@ -78,16 +78,15 @@ import { claudeLocalAdapter } from "agent-orchestrator/adapters/claude-local";
 - **Store** is pluggable. `MemoryStore` ships for testing; implement `OrchestratorStore` for production (e.g., PostgreSQL).
 - **Tenant isolation** via `tenantId` (optional, defaults to `"default"` for single-tenant use).
 
-## Running the Examples
+## Examples
 
 The examples live in the `examples/` directory. Run them with `tsx`:
 
 ```bash
-# Install tsx if you don't have it
 npm install -g tsx
 ```
 
-### Example 1: Single Agent Runner
+### 01 — Single Agent Runner
 
 Registers a Claude agent, invokes it with a prompt, and prints the result.
 
@@ -97,7 +96,7 @@ Registers a Claude agent, invokes it with a prompt, and prints the result.
 npx tsx examples/01-single-agent-runner.ts
 ```
 
-### Example 2: Multi-Session Resume
+### 02 — Multi-Session Resume
 
 Demonstrates session persistence across multiple runs using a mock adapter (no CLI tools required):
 - Run 1: Agent starts a fresh session
@@ -109,7 +108,7 @@ Demonstrates session persistence across multiple runs using a mock adapter (no C
 npx tsx examples/02-multi-session-resume.ts
 ```
 
-### Example 3: Agent Identity from Markdown
+### 03 — Agent Identity from Markdown
 
 Shows how to give an agent a full identity via a markdown file — defining its role, personality, rules, and output format. Demonstrates two approaches:
 
@@ -133,7 +132,7 @@ npm run build
 # Type-check
 npm run check
 
-# Run tests
+# Run tests (167 tests across 11 files)
 npm test
 
 # Run tests in watch mode
