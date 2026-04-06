@@ -2,6 +2,8 @@
 
 Standalone library for scheduling, executing, and managing sessions for CLI-based AI agents. Supports Claude, Codex, Gemini, Cursor, OpenCode, Pi, and OpenClaw out of the box.
 
+<img src="examples/img.png" />
+
 ## Installation
 
 ```bash
