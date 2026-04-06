@@ -1,0 +1,50 @@
+{
+  "name": "agent-orchestrator",
+  "version": "0.1.0",
+  "description": "Standalone agent orchestration library — schedule, execute, and manage sessions for CLI-based AI agents (Claude, Codex, Gemini, Cursor, OpenCode, Pi, OpenClaw)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./adapters/*": {
+      "import": "./dist/adapters/*/index.js",
+      "types": "./dist/adapters/*/index.d.ts"
+    },
+    "./stores/*": {
+      "import": "./dist/stores/*.js",
+      "types": "./dist/stores/*.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.18.1",
+    "tsup": "^8.0.0",
+    "typescript": "^5.7.0",
+    "vitepress": "^1.6.4",
+    "vitest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.19.0"
+  }
+}
